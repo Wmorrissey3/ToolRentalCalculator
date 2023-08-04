@@ -30,7 +30,6 @@ public class RentalAgreementServiceTest {
         JAKR = new Tool("JAKR", "Jackhammer", "Ridgid", BigDecimal.valueOf(2.99), true, false, false);
     }
 
-    //Test 1
     @Test
     public void checkout_WithInvalidDiscount_ThrowsException() {
         //given input
@@ -49,7 +48,6 @@ public class RentalAgreementServiceTest {
         assertTrue(actualErrorMessage.contains(expectedErrorMessage));
     }
 
-    //Test 2
     @Test
     public void checkout_LADW_IndependenceDay_NoHolidayCharge() {
         //given input
@@ -77,7 +75,6 @@ public class RentalAgreementServiceTest {
         assertEquals(expectedFinalCharge, actualRentalAgreement.getFinalCharge());
     }
 
-    //Test 3
     @Test
     public void checkout_CHNS_IndependenceDayWeekend_HolidayChargeButNoWeekendCharge() {
         //given input
@@ -105,7 +102,6 @@ public class RentalAgreementServiceTest {
         assertEquals(expectedFinalCharge, actualRentalAgreement.getFinalCharge());
     }
 
-    //Test 4
     @Test
     public void checkout_JAKD_LaborDayWeekend_NoWeekendOrHolidayCharge() {
         //given input
@@ -133,7 +129,6 @@ public class RentalAgreementServiceTest {
         assertEquals(expectedFinalCharge, actualRentalAgreement.getFinalCharge());
     }
 
-    //Test 5
     @Test
     public void checkout_JAKR_IndependenceDayWeekend_NoWeekendOrHolidayCharge() {
         //given input
@@ -161,10 +156,9 @@ public class RentalAgreementServiceTest {
         assertEquals(expectedFinalCharge, actualRentalAgreement.getFinalCharge());
     }
 
-    //Test 6
     @Test
     public void checkout_JAKR_IndependenceDayWeekendWithDiscount_NoWeekendOrHolidayCharge() {
-        //given
+        //given input
         LocalDate checkoutDate = LocalDate.of(2020, 7, 2);
         int rentalDays = 4;
         int discountPercent = 50;
@@ -189,10 +183,9 @@ public class RentalAgreementServiceTest {
         assertEquals(expectedFinalCharge, actualRentalAgreement.getFinalCharge());
     }
 
-    //Extra Test 1
     @Test
     public void checkout_WithInvalidRentalDays_ThrowsException() {
-        //given
+        //given input
         LocalDate checkoutDate = LocalDate.of(2015, 9, 03);
         int invalidRentalDays = 0;
         int discount = 0;
@@ -208,10 +201,9 @@ public class RentalAgreementServiceTest {
         assertTrue(actualErrorMessage.contains(expectedErrorMessage));
     }
 
-    //Extra Test 2
     @Test
     public void checkout_CHNS_FreeWeekend_ZeroCharge() {
-        //given
+        //given input
         LocalDate checkoutDate = LocalDate.of(2023, 8, 5);
         int rentalDays = 2;
         int discountPercent = 10;
@@ -236,10 +228,9 @@ public class RentalAgreementServiceTest {
         assertEquals(expectedFinalCharge, actualRentalAgreement.getFinalCharge());
     }
 
-    //Extra Test 3
     @Test
     public void checkout_JAKD_FreeIndependenceDay_ZeroCharge() {
-        //given
+        //given input
         LocalDate checkoutDate = LocalDate.of(2023, 7, 4);
         int rentalDays = 1;
         int discountPercent = 10;
@@ -264,10 +255,9 @@ public class RentalAgreementServiceTest {
         assertEquals(expectedFinalCharge, actualRentalAgreement.getFinalCharge());
     }
 
-    //Extra Test 4
     @Test
     public void checkout_JAKD_FreeLaborDayWeekend_ZeroCharge() {
-        //given
+        //given input
         LocalDate checkoutDate = LocalDate.of(2023, 9, 2);
         int rentalDays = 3;
         int discountPercent = 10;
@@ -292,10 +282,9 @@ public class RentalAgreementServiceTest {
         assertEquals(expectedFinalCharge, actualRentalAgreement.getFinalCharge());
     }
 
-    //Extra Test 5
     @Test
     public void checkout_LADW_TwoYearRental_LargeFinalCharge() {
-        //given
+        //given input
         LocalDate checkoutDate = LocalDate.of(2020, 7, 2);
         int rentalDays = 730;
         int discountPercent = 25;
@@ -320,10 +309,9 @@ public class RentalAgreementServiceTest {
         assertEquals(expectedFinalCharge, actualRentalAgreement.getFinalCharge());
     }
 
-    //Extra Test 6
     @Test
     public void calculateChargeDays_CHNS_IndependenceDay_HolidayCharge() {
-        //given
+        //given input
         LocalDate checkoutDate = LocalDate.of(2020, 7, 2);
         LocalDate dueDate = LocalDate.of(2020, 7, 4);
 
@@ -337,7 +325,6 @@ public class RentalAgreementServiceTest {
         assertEquals(expectedChargeDays, actualChargeDays);
     }
 
-    //Extra Test 6
     @Test
     public void calculateChargeDays_JAKD_IndependenceDay_NoHolidayCharge() {
         //given input
@@ -354,7 +341,6 @@ public class RentalAgreementServiceTest {
         assertEquals(expectedChargeDays, actualChargeDays);
     }
 
-    //Extra Test 7
     @Test
     public void calculateChargeDays_CHNS_LaborDay_HolidayCharge() {
         //given input
@@ -371,7 +357,6 @@ public class RentalAgreementServiceTest {
         assertEquals(expectedChargeDays, actualChargeDays);
     }
 
-    //Extra Test 8
     @Test
     public void calculateChargeDays_JAKD_LaborDay_NoHolidayCharge() {
         //given input

@@ -9,7 +9,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//note: run RentalAgreementServiceTest to see Tool Rental Transactions
+		//TODO note: run RentalAgreementServiceTest to see Tool Rental Transactions
 
 		//TODO: implement
 		SpringApplication.run(Main.class, args);
